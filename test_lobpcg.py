@@ -35,11 +35,11 @@ def test_lobpcg(read_guess=True, tol=1e-5):
     if read_guess:
         X = x0
 
-    #try:
+    try:
         λ, v = lobpcg(A, X, largest=False, M=P, maxiter=100, tol=tol)
         assert np.max(np.abs(λref - λ)) < tol
-    #except np.linalg.LinAlgError as e:
-    #    print("ERROR: ", str(e))
+    except np.linalg.LinAlgError as e:
+        print("ERROR: ", str(e))
 
 
 print()
