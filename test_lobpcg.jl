@@ -24,7 +24,7 @@ println("A λ dist:          ", abs.(λreff[m+1] - λreff[m]))
 println("P*A ritz dist:     ", abs.(λPAm1 - λPAm))
 
 # Unfortunately missing in standard library
-LinearAlgebra.ldiv!(Y, M::Diagonal, X) = Y = ldiv!(M, copy(X))
+LinearAlgebra.ldiv!(Y, M::Diagonal, X) = Y .= ldiv!(M, copy(X))
 
 function test_lobpcg(;read_guess=true, tol=1e-5)
     # P is a diagonal matrix that contains the preconditioner
